@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Смартлаб</string>
+
+    <string-array name="gender">
+        <item>Пол</item>
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+</resources>

@@ -14,7 +14,33 @@
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/onboardingViewPager"/>
+        android:id="@+id/onboardingViewPager">
+
+    </androidx.viewpager2.widget.ViewPager2>
+    <TextView
+        android:id="@+id/Skiptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="skip"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="49dp"
+        android:text="Пропустить"
+        android:textColor="#57A9FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="203dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="49dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logoback" />
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -26,4 +52,5 @@
         android:layout_marginTop="407dp"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="159dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

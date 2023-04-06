@@ -34,13 +34,13 @@ class OnboardingItemsAdapter(private val onboardingItems: List<OnboardingItem>):
         private val textTitle = view.findViewById<TextView>(R.id.textTitle)
         private val textDescription = view.findViewById<TextView>(R.id.textDescription)
         private val imageOnboarding = view.findViewById<ImageView>(R.id.imageOnboarding)
-        private val textSkip = view.findViewById<TextView>(R.id.Skiptext)
+
 
         fun bind(onboardingItem: OnboardingItem){
             textTitle.text = onboardingItem.title
             textDescription.text = onboardingItem.description
             imageOnboarding.setImageResource(onboardingItem.onboardingImage)
-            textSkip.text = onboardingItem.skip
+
         }
     }
 }

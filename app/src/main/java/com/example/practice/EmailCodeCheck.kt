@@ -45,6 +45,7 @@ class EmailCodeCheck : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
                 val code = codeField.text.toString()
                 val email = intent.getStringExtra("email").toString()
+                if(code.length==4){
                 CoroutineScope(Dispatchers.IO).launch {
                     val Message = mainAPI.goIn(
                         email,
@@ -55,6 +56,7 @@ class EmailCodeCheck : AppCompatActivity() {
                         val intent = Intent(this@EmailCodeCheck, MainActivity2::class.java)
                         startActivity(intent)
                     }
+                }
                 }
             }
 

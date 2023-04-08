@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -17,7 +16,7 @@ import com.example.onboarding.OnboardingItem
 import com.example.onboarding.OnboardingItemsAdapter
 
 class Start : AppCompatActivity() {
-    var pref : SharedPreferences? = null
+    private var pref : SharedPreferences? = null
     private lateinit var onboardingItemsAdapter: OnboardingItemsAdapter
 
     private lateinit var indicatorsContainer: LinearLayout
@@ -28,7 +27,7 @@ class Start : AppCompatActivity() {
         setContentView(R.layout.activity_start)
 
         pref = getSharedPreferences("flags", Context.MODE_PRIVATE)
-        var CurrentFlag = pref?.getString("board","")!!
+
 
         setOnboardingItems()
         setupIndicators()
@@ -116,7 +115,7 @@ class Start : AppCompatActivity() {
         }
     }
 
-    fun skip(view: View) {
+    fun skip() {
 
         val editor = pref?.edit()
         editor?.putString("board", "done")

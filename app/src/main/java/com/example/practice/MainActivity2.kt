@@ -14,9 +14,26 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import com.example.practice.retrofit.Profile
+import com.example.retrolab.retrofit.API
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity2 : AppCompatActivity() {
+
+    lateinit var name: String
+    lateinit var fname: String
+    lateinit var sname: String
+    lateinit var birth: String
+    lateinit var pol: String
+
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +49,14 @@ class MainActivity2 : AppCompatActivity() {
         var create = findViewById<Button>(R.id.create)
         create.isClickable=false
 
+
+
+
         name1.addTextChangedListener(object : TextWatcher
         {
             override fun afterTextChanged(p0: Editable?) {
                 TextWatchMain2(this@MainActivity2).Button_av()
+                name = name1.text.toString()
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -48,6 +69,7 @@ class MainActivity2 : AppCompatActivity() {
         {
             override fun afterTextChanged(p0: Editable?) {
                 TextWatchMain2(this@MainActivity2).Button_av()
+                sname = surname1.text.toString()
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -59,6 +81,7 @@ class MainActivity2 : AppCompatActivity() {
         {
             override fun afterTextChanged(p0: Editable?) {
                 TextWatchMain2(this@MainActivity2).Button_av()
+                birth=birthdate1.text.toString()
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -70,6 +93,7 @@ class MainActivity2 : AppCompatActivity() {
         {
             override fun afterTextChanged(p0: Editable?) {
                 TextWatchMain2(this@MainActivity2).Button_av()
+                fname=fname1.text.toString()
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -81,6 +105,7 @@ class MainActivity2 : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
                 TextWatchMain2(this@MainActivity2).Button_av()
+                pol=pol1.selectedItem.toString()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
@@ -95,8 +120,26 @@ class MainActivity2 : AppCompatActivity() {
 
 
     fun create(view: View) {
-        var intent = Intent(this, Main::class.java)
-        startActivity(intent)
-        finish()
+
+        val inter = HttpLoggingInterceptor()
+        inter.level = HttpLoggingInterceptor.Level.BODY
+
+        val client = OkHttpClient.Builder().addInterceptor(inter).build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://medic.madskill.ru").client(client)
+            .addConverterFactory(GsonConverterFactory.create()).build()
+
+        val mainAPI = retrofit.create(API::class.java)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val Prof = mainAPI.CreateProfile(Profile(11111, name, fname, sname, birth, pol, "0"))
+            runOnUiThread {
+                var intent = Intent(this@MainActivity2, Main::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+
     }
 }

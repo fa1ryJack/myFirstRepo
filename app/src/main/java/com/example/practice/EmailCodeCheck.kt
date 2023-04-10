@@ -53,7 +53,7 @@ class EmailCodeCheck : AppCompatActivity() {
                     )
 
                     runOnUiThread {
-                        val intent = Intent(this@EmailCodeCheck, MainActivity2::class.java)
+                        val intent = Intent(this@EmailCodeCheck, CreatePassword::class.java)
                         startActivity(intent)
                     }
                 }

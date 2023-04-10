@@ -142,4 +142,8 @@ class MainActivity2 : AppCompatActivity() {
         }
 
     }
+
+    fun skip(view: View) {var intent = Intent(this@MainActivity2, Main::class.java)
+        startActivity(intent)
+        finish()}
 }

@@ -24,6 +24,7 @@ var password = password
             R.id.pass9 ->{password += "9"}
             R.id.pass0 ->{password += "0"}
             R.id.pass3 ->{password += "3"}
+           R.id.passD ->{if (!password.isEmpty()){password = password.substring(0, password.length-1)}}
         }
            return  password
     }}

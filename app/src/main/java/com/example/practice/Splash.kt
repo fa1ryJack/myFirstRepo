@@ -23,7 +23,7 @@ class Splash : AppCompatActivity() {
         Timer("timer", false).schedule(2000){
             startActivity(intent)
             finish()
-        }}else if (CurrentFlag=="done"){var intent = Intent(this, MainActivity::class.java)
+        }}else if (CurrentFlag=="done"){var intent = Intent(this, Main::class.java)
             Timer("timer", false).schedule(2000){
                 startActivity(intent)
                 finish()

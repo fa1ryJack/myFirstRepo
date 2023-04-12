@@ -1,9 +1,8 @@
 package com.example.practice
 
 import android.annotation.SuppressLint
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -131,9 +130,10 @@ class MainActivity2 : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create()).build()
 
         val mainAPI = retrofit.create(API::class.java)
-
+       val pref = getSharedPreferences("token", Context.MODE_PRIVATE)
+        val token = pref.getString("token","")
         CoroutineScope(Dispatchers.IO).launch {
-            val Prof = mainAPI.CreateProfile(Profile(11111, name, fname, sname, birth, pol, "0"))
+            val Prof = mainAPI.createProfile("Bearer "+token.toString(), Profile(11111, name, fname, sname, birth, pol, "0"))
             runOnUiThread {
                 var intent = Intent(this@MainActivity2, Main::class.java)
                 startActivity(intent)

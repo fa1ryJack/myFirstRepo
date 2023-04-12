@@ -1,5 +1,7 @@
 package com.example.practice
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,18 +44,21 @@ class EmailCodeCheck : AppCompatActivity() {
 
             }
 
+            @SuppressLint("SuspiciousIndentation")
             override fun afterTextChanged(p0: Editable?) {
                 val code = codeField.text.toString()
                 val email = intent.getStringExtra("email").toString()
                 if(code.length==4){
                 CoroutineScope(Dispatchers.IO).launch {
-                    val Message = mainAPI.goIn(
+                    val token = mainAPI.goIn(
                         email,
                         code
-                    )
+                    ).token
 
                     runOnUiThread {
                         val intent = Intent(this@EmailCodeCheck, CreatePassword::class.java)
+                      var pref = getSharedPreferences("token", Context.MODE_PRIVATE)
+                        pref.edit().putString("token", token).apply()
                         startActivity(intent)
                     }
                 }

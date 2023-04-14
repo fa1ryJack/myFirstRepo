@@ -1,9 +1,7 @@
 package com.example.retrolab.retrofit
 
-import com.example.practice.retrofit.Catalog
-import com.example.practice.retrofit.Message
-import com.example.practice.retrofit.Profile
-import com.example.practice.retrofit.Token
+import com.example.practice.retrofit.*
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -21,7 +19,7 @@ interface API {
     @POST("/api/createProfile")
     suspend fun createProfile(@Header("Authorization") token: String, @Body profile: Profile): Profile
 
-
+    @Headers("Content-Type: application/json")
     @GET("/api/catalog")
-    suspend fun  getCatalog(): List<Catalog>
+    suspend fun  getCatalog(): Response<List<Catalog>>
 }

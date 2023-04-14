@@ -2,6 +2,7 @@ package com.example.practice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.retrolab.retrofit.API
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,8 +30,10 @@ class Main : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
            val catalog = mainAPI.getCatalog()
-            runOnUiThread {
 
+
+            runOnUiThread {
+               findViewById<TextView>(R.id.acc).text= catalog.body()?.get(0)?.name.toString()
             }
         }
     }

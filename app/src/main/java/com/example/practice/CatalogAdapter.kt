@@ -28,7 +28,7 @@ class CatalogAdapter: RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
         return  CatalogViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_article_main, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_an_main, parent, false)
         )
     }
 

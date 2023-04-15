@@ -1,4 +1,4 @@
-package com.example.practice
+package com.example.practice.layouts_classes
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,11 +8,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.SpinnerAdapter
-import androidx.core.content.ContextCompat
+import com.example.practice.R
 import com.example.retrolab.retrofit.API
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

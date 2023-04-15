@@ -1,6 +1,5 @@
-package com.example.practice
+package com.example.practice.onboarding
 
-import com.example.onboarding.OnboardingItem
 import java.util.*
 
 class OnboardingForTest {

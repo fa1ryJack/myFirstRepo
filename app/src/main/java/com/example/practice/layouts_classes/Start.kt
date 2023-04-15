@@ -1,10 +1,11 @@
-package com.example.practice
+package com.example.practice.layouts_classes
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -12,8 +13,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.onboarding.OnboardingItem
-import com.example.onboarding.OnboardingItemsAdapter
+import com.example.practice.onboarding.OnboardingItem
+import com.example.practice.onboarding.OnboardingItemsAdapter
+import com.example.practice.R
 
 class Start : AppCompatActivity() {
     private var pref : SharedPreferences? = null
@@ -110,12 +112,13 @@ class Start : AppCompatActivity() {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(
                         applicationContext,
-                        R.drawable.indicator_inac))
+                        R.drawable.indicator_inac
+                    ))
             }
         }
     }
 
-    fun skip() {
+    fun skip(view: View) {
 
         val editor = pref?.edit()
         editor?.putString("board", "done")

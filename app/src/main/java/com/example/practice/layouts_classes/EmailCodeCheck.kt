@@ -1,4 +1,4 @@
-package com.example.practice
+package com.example.practice.layouts_classes
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import com.example.practice.R
 import com.example.retrolab.retrofit.API
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import com.example.practice.layouts_classes.MainActivity2
 
 class TextWatchMain2(private val context: Context)
 {

@@ -1,7 +1,7 @@
 package com.example.practice
 
-import com.example.onboarding.OnboardingItem
-import com.example.onboarding.OnboardingItemsAdapter
+import com.example.practice.onboarding.OnboardingItem
+import com.example.practice.onboarding.OnboardingForTest
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNull
 import org.junit.Before

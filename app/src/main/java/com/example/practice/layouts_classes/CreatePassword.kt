@@ -1,4 +1,4 @@
-package com.example.practice
+package com.example.practice.layouts_classes
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
+import com.example.practice.PasswordInput
+import com.example.practice.R
 
 class CreatePassword : AppCompatActivity() {
     private var pref : SharedPreferences? = null

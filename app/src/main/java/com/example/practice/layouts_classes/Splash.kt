@@ -1,10 +1,11 @@
-package com.example.practice
+package com.example.practice.layouts_classes
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.practice.R
 import java.util.*
 import kotlin.concurrent.schedule
 

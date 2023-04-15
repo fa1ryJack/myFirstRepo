@@ -1,5 +1,6 @@
 package com.example.practice.retrofit
 
+
 data class Catalog(
     val id : Int,
     val name : String,

@@ -24,6 +24,7 @@ class Main : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
+
         val inter = HttpLoggingInterceptor()
         inter.level = HttpLoggingInterceptor.Level.BODY
 
@@ -34,7 +35,9 @@ class Main : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create()).build()
 
         val mainAPI = retrofit.create(API::class.java)
+
       initAdapter()
+
         CoroutineScope(Dispatchers.IO).launch {
             val responce = mainAPI.getCatalog()
             runOnUiThread {

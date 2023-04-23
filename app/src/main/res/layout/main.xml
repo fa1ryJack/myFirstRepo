@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ser" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="409dp"
         android:layout_height="525dp"
         android:layout_marginStart="1dp"
@@ -259,18 +259,21 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-           <androidx.recyclerview.widget.RecyclerView
-               android:id="@+id/catalog_adapter"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="24dp"
-               android:clipToPadding="false"
-               android:paddingBottom="50dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/catalog_adapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="50dp">
 
-           </androidx.recyclerview.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
+
+
 
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

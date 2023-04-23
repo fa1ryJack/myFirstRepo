@@ -1,5 +1,6 @@
 package com.example.practice
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class CatalogAdapter: RecyclerView.Adapter<CatalogAdapter.CatalogViewHolder>() {
         return differ.currentList.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
         val catalog = differ.currentList[position]
         holder.itemView.apply{
